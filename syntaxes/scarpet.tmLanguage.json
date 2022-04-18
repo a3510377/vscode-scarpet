@@ -1,0 +1,77 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "scarpet",
+  "patterns": [{ "include": "#statements" }, { "include": "#expression" }],
+  "repository": {
+    "expression": {
+      "patterns": [
+        { "include": "#strings" },
+        { "include": "#keywords" },
+        { "include": "#variables" }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted",
+      "patterns": [
+        {
+          "name": "string.quoted.single",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            { "name": "constant.character.escape", "match": "\\\\." }
+          ]
+        }
+      ]
+    },
+    "keywords": {
+      "name": "keyword.control",
+      "patterns": [
+        {
+          "match": "(?<!\\w)(if|return|exit|try|call|import|outer|break|continue|for|c_for|while|loop|vars?|undef)(?!\\w)",
+          "captures": { "1": { "name": "keyword.control" } }
+        },
+        {
+          "match": "(?<!\\w)(copy|type|bool|number|str|player)(?!\\w)",
+          "captures": { "1": { "name": "support.type" } }
+        },
+        {
+          "expression": "math",
+          "name": "keyword.operator.comparison",
+          "match": "(>=|<=|==|!=|>|<)",
+          "captures": {
+            "1": { "name": "keyword.operator.comparison" },
+            "2": { "name": "constant.numeric" }
+          }
+        },
+        { "name": "keyword.operator.logical", "match": "(&&|\\|\\|)" },
+        { "name": "keyword.operator.function", "match": "->" }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "constant.numeric",
+          "patterns": [
+            {
+              "name": "constant.numeric",
+              "match": "-?\\d+?([\\.e]\\d+)?"
+            },
+            {
+              "match": ""
+            }
+          ]
+        }
+      ]
+    },
+    "statements": {
+      "patterns": [{ "include": "#comments" }, { "include": "#functions" }]
+    },
+    "comments": {
+      "name": "comment.line",
+      "patterns": [
+        { "name": "comment.line.number-sign", "match": "\\/\\/.*\\n" }
+      ]
+    }
+  },
+  "scopeName": "source.sc"
+}

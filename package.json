@@ -6,21 +6,10 @@
   "engines": {
     "vscode": "^1.66.0"
   },
-  "categories": [
-    "Other"
-  ],
   "activationEvents": [
     "onCommand:scarpet.helloWorld"
   ],
   "main": "./out/extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "scarpet.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
     "compile": "tsc -p ./",
@@ -41,5 +30,33 @@
     "mocha": "^9.2.2",
     "typescript": "^4.5.5",
     "@vscode/test-electron": "^2.1.3"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "scarpet",
+        "aliases": [
+          "scarpet",
+          "sc",
+          "scl"
+        ],
+        "extensions": [
+          ".sc",
+          ".scl"
+        ],
+        "icon": {
+          "dark": "./assets/scarpetIcon.svg",
+          "light": "./assets/scarpetIcon.svg"
+        },
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "scarpet",
+        "scopeName": "source.sc",
+        "path": "./syntaxes/scarpet.tmLanguage.json"
+      }
+    ]
   }
 }
