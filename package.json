@@ -44,6 +44,7 @@
           ".sc",
           ".scl"
         ],
+        "scopes": {},
         "icon": {
           "dark": "./assets/scarpetIcon.svg",
           "light": "./assets/scarpetIcon.svg"
@@ -58,5 +59,6 @@
         "path": "./syntaxes/scarpet.tmLanguage.json"
       }
     ]
-  }
+  },
+  "tokenColors": "./resources/default-color-theme.json"
 }

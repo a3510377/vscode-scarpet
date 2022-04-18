@@ -1,0 +1,11 @@
+{
+  "$schema": "vscode://schemas/color-theme",
+  "tokenColors": [
+    {
+      "scope": ["constant.other"],
+      "settings": {
+        "foreground": "#0451a5"
+      }
+    }
+  ]
+}

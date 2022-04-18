@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "scarpet",
   "patterns": [{ "include": "#statements" }, { "include": "#expression" }],
   "repository": {
@@ -37,11 +36,7 @@
         {
           "expression": "math",
           "name": "keyword.operator.comparison",
-          "match": "(>=|<=|==|!=|>|<)",
-          "captures": {
-            "1": { "name": "keyword.operator.comparison" },
-            "2": { "name": "constant.numeric" }
-          }
+          "match": "(>=|<=|==|!=|>|<)"
         },
         { "name": "keyword.operator.logical", "match": "(&&|\\|\\|)" },
         { "name": "keyword.operator.function", "match": "->" }
@@ -57,7 +52,12 @@
               "match": "-?\\d+?([\\.e]\\d+)?"
             },
             {
-              "match": ""
+              "name": "constant.other.caps.scarpet",
+              "match": "[^\\w]?(pi|euler)[^\\w]"
+            },
+            {
+              "name": "constant.language.scarpet",
+              "match": "[^\\w]?(null|true|false)[^\\w]"
             }
           ]
         }
