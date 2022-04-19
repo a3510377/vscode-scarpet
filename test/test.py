@@ -5,3 +5,4 @@ None
 False
 PI
 t = 10
+str()

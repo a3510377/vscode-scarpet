@@ -6,6 +6,7 @@
       "patterns": [
         { "include": "#strings" },
         { "include": "#keywords" },
+        { "include": "#punctuation" },
         { "include": "#variables" }
       ]
     },
@@ -23,7 +24,6 @@
       ]
     },
     "keywords": {
-      "name": "keyword.control",
       "patterns": [
         {
           "match": "(?<!\\w)(if|return|exit|try|call|import|outer|break|continue|for|c_for|while|loop|vars?|undef)(?!\\w)",
@@ -31,7 +31,7 @@
         },
         {
           "match": "(?<!\\w)(copy|type|bool|number|str|player)(?!\\w)",
-          "captures": { "1": { "name": "support.type" } }
+          "captures": { "1": { "name": "support.type.primitive.scarpet" } }
         },
         {
           "expression": "math",
@@ -55,7 +55,7 @@
           "patterns": [
             {
               "name": "constant.numeric",
-              "match": "-?\\d+?([\\.e]\\d+)?"
+              "match": "-?\\d+([\\.e]\\d+)?|([\\.e]\\d+)"
             },
             {
               "name": "variable.other.constant",
@@ -66,8 +66,8 @@
               "match": "[^\\w]?(null|true|false)[^\\w]"
             },
             {
-              "name": "variable.other.readwrite",
-              "match": "\\w+"
+              "match": "([_$[a-zA-Z]][_$[A-Za-z0-9]]*)",
+              "name": "variable.other.readwrite.scarpet"
             }
           ]
         }
@@ -77,9 +77,16 @@
       "patterns": [{ "include": "#comments" }, { "include": "#functions" }]
     },
     "comments": {
-      "name": "comment.line",
       "patterns": [
         { "name": "comment.line.number-sign", "match": "\\/\\/.*\\n" }
+      ]
+    },
+    "bracketColorizer": {
+      "patterns": [
+        {
+          "name": "",
+          "match": ""
+        }
       ]
     }
   },
