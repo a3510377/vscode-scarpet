@@ -42,6 +42,12 @@
         { "name": "keyword.operator.function", "match": "->" }
       ]
     },
+    "punctuation": {
+      "patterns": [
+        { "name": "punctuation.terminator.statement.scarpet", "match": ";" },
+        { "name": "punctuation.separator.comma.scarpet", "match": "," }
+      ]
+    },
     "variables": {
       "patterns": [
         {
@@ -52,12 +58,16 @@
               "match": "-?\\d+?([\\.e]\\d+)?"
             },
             {
-              "name": "constant.other.caps.scarpet",
+              "name": "variable.other.constant",
               "match": "[^\\w]?(pi|euler)[^\\w]"
             },
             {
               "name": "constant.language.scarpet",
               "match": "[^\\w]?(null|true|false)[^\\w]"
+            },
+            {
+              "name": "variable.other.readwrite",
+              "match": "\\w+"
             }
           ]
         }
